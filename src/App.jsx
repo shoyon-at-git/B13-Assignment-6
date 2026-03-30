@@ -1,12 +1,12 @@
 import './App.css'
+import NavBar from './assets/components/navbar/NavBar'
 
 function App() {
   return (
     <>
-    <div className='text-center'>   
-      Hello
-      <button className='btn btn-primary'>Hello</button>
-    </div>
+    <header>
+      <NavBar></NavBar>
+    </header>
     </>
   )
 }

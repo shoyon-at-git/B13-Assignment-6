@@ -13,7 +13,7 @@ const NavBar = () => {
 
     return (
         <div className='max-w-400 mx-auto px-50 py-6 flex justify-between items-center shadow-xs'>
-            <h2 className='text-3xl text-purple-600 font-bold'>DigiTools</h2>
+            <a href='/' className='text-3xl text-purple-600 font-bold'>DigiTools</a>
             <ul className=' flex gap-8'>
                 {
                     navItems.map((item) => <NavItems item={item} key={item.id}></NavItems>)

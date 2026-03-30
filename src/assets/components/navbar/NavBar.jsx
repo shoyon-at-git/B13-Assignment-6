@@ -1,31 +1,54 @@
-import React from 'react';
-import NavItems from './navitems/NavItems';
-import { ShoppingCart } from 'lucide-react';
+import React, { useState } from "react";
+import NavItems from "./navitems/NavItems";
+import { Menu, ShoppingCart, X } from "lucide-react";
 
 const NavBar = () => {
+    const [menuOpen, setMenuOpen] = useState(false);
+    const toggleMenu = () => {
+        setMenuOpen(!menuOpen);
+    };
     const navItems = [
-  { "id": 1, "name": "Products", "path": "#products" },
-  { "id": 2, "name": "Features", "path": "#features" },
-  { "id": 3, "name": "Pricing", "path": "#pricing" },
-  { "id": 4, "name": "Testimonials", "path": "#testimonial" },
-  { "id": 5, "name": "FAQ", "path": "#faq" },
-];
+        { id: 1, name: "Products", path: "#products" },
+        { id: 2, name: "Features", path: "#features" },
+        { id: 3, name: "Pricing", path: "#pricing" },
+        { id: 4, name: "Testimonials", path: "#testimonial" },
+        { id: 5, name: "FAQ", path: "#faq" },
+    ];
 
     return (
-        <div className='max-w-400 mx-auto px-50 py-6 flex justify-between items-center shadow-xs'>
-            <a href='/' className='text-3xl text-purple-600 font-bold'>DigiTools</a>
-            <ul className=' flex gap-8'>
-                {
-                    navItems.map((item) => <NavItems item={item} key={item.id}></NavItems>)
-                }
+        <div className=" max-w-400 mx-auto px-5 xl:px-50 py-3 md:py-6 flex justify-between items-center shadow-xs">
+            <div className="flex items-center gap-2">
+                <div className="relative">
+                    {
+                        menuOpen?
+                            (<X className="md:hidden cursor-pointer transition-all duration-100" onClick={toggleMenu}></X>) :
+                            (<Menu className="md:hidden cursor-pointer" onClick={toggleMenu}></Menu>)
+                        
+                    }
+                    <ul className={`md:hidden absolute ${menuOpen? "top-[150%]" : "-top-100"} bg-amber-100 shadow-md z-10 left-0 p-2 transition-all duration-700 text-sm space-y-3`}>
+                        {navItems.map((item) => (
+                            <NavItems item={item} key={item.id}></NavItems>
+                        ))}
+                    </ul>
+                </div>
+                <a href="/" className="text-xl md:text-3xl text-purple-600 font-bold">
+                    DigiTools
+                </a>
+            </div>
+            <ul className="hidden md:flex gap-8">
+                {navItems.map((item) => (
+                    <NavItems item={item} key={item.id}></NavItems>
+                ))}
             </ul>
-            <div className='flex items-center gap-4'>
-                <button className='btn btn-outline border-none relative'>
+            <div className="flex items-center gap-2 lg:gap-4">
+                <button className="btn btn-outline border-none relative">
                     <ShoppingCart></ShoppingCart>
-                    <p className='bg-red-600 text-[10px] text-white rounded px-1 absolute top-[12%] left-[50%] hidden'>0</p>
+                    <p className="bg-red-600 text-[10px] text-white rounded px-1 absolute top-[12%] left-[50%] hidden">
+                        0
+                    </p>
                 </button>
-                <button className='btn btn-outline border-none'>Login</button>
-                <button className='btn btn-primary rounded-3xl'>Get Started</button>
+                <button className="btn btn-outline border-none">Login</button>
+                <button className="btn btn-primary rounded-3xl">Get Started</button>
             </div>
         </div>
     );

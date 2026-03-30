@@ -13,6 +13,9 @@ function App() {
       <section>
         <Banner></Banner>
       </section>
+      <section id='products' className='min-h-screen'>
+        
+      </section>
     </main>
     </>
   )

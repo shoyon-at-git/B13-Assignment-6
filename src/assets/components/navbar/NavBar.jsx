@@ -12,7 +12,7 @@ const NavBar = () => {
 ];
 
     return (
-        <div className='max-w-300 mx-auto  py-6 flex justify-between items-center shadow-xs'>
+        <div className='max-w-400 mx-auto px-50 py-6 flex justify-between items-center shadow-xs'>
             <h2 className='text-3xl text-purple-600 font-bold'>DigiTools</h2>
             <ul className=' flex gap-8'>
                 {

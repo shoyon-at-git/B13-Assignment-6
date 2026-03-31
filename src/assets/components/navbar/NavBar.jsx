@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import NavItems from "./navitems/NavItems";
 import { Menu, ShoppingCart, X } from "lucide-react";
 
-const NavBar = ({cart}) => {
+const NavBar = ({cart, setShowCart}) => {
     const [menuOpen, setMenuOpen] = useState(false);
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);

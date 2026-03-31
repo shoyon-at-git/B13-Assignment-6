@@ -2,7 +2,7 @@ import { ShoppingCart } from "lucide-react";
 import React from "react";
 
 const CartToolCard = ({ cart, setCart }) => {
-    console.log(cart);
+    // console.log(cart);
 
     let total= 0;
     for(let cartItem of cart){
@@ -13,8 +13,13 @@ const CartToolCard = ({ cart, setCart }) => {
     const handleCheckout =() =>{
         setCart([]);
     }
+    const handleRemove = (id) => {
+        const remainingCart = cart.filter((item) => id !== item.id);
+        setCart(remainingCart);
+    };
+
     return (
-        <div className="space-y-4  px-5 py-4 rounded-md shadow-2xl">
+        <div id="cart" className="space-y-4  px-5 py-4 rounded-md shadow-2xl">
             <h2 className="text-3xl font-bold">Your Cart</h2>
 
             {cart.length === 0 ? (
@@ -34,7 +39,7 @@ const CartToolCard = ({ cart, setCart }) => {
                                 <p className="font-semibold text-gray-500 text-sm">${item.price}</p>
                             </div>
                         </div>
-                        <p className="btn btn-outline border-none">Remove</p>
+                        <p onClick={() => handleRemove(item.id)} className="btn btn-outline border-none">Remove</p>
                     </div>
                 ))
             )}

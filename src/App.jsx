@@ -42,7 +42,7 @@ function App() {
                     </div>
                 </section>
 
-                <section className="max-w-300 mx-auto py-30">
+                <section className="max-w-300 mx-auto py-10 lg:py-30">
                     <Suspense fallback={<span className="loading loading-spinner loading-lg"></span>}>
                         <ToolsData toolsPromise={toolsPromise} cart={cart} setCart={setCart}></ToolsData>
                     </Suspense>

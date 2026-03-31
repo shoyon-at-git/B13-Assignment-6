@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import NavItems from "./navitems/NavItems";
 import { Menu, ShoppingCart, X } from "lucide-react";
 
-const NavBar = () => {
+const NavBar = ({cart}) => {
     const [menuOpen, setMenuOpen] = useState(false);
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
@@ -43,8 +43,8 @@ const NavBar = () => {
             <div className="flex items-center gap-2 lg:gap-4">
                 <button className="btn btn-outline border-none relative">
                     <ShoppingCart></ShoppingCart>
-                    <p className="bg-red-600 text-[10px] text-white rounded px-1 absolute top-[12%] left-[50%] hidden">
-                        0
+                    <p className={`bg-red-600 text-[10px] text-white rounded px-1 absolute top-[12%] left-[50%] ${cart.length === 0 ? "hidden" : ""}`}>
+                        {cart.length}
                     </p>
                 </button>
                 <button className="btn btn-outline border-none">Login</button>

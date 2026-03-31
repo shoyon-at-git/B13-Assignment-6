@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 import "./App.css";
 import Banner from "./assets/components/banner/Banner/Banner";
 import NavBar from "./assets/components/navbar/NavBar";
@@ -11,11 +11,14 @@ const fetchToolsData = async () => {
 };
 const toolsPromise = fetchToolsData();
 
+
+
 function App() {
+    const [cart, setCart] = useState([]);
     return (
         <>
             <header>
-                <NavBar></NavBar>
+                <NavBar  cart={cart}></NavBar>
             </header>
             <main>
                 <section>
@@ -41,7 +44,7 @@ function App() {
 
                 <section className="max-w-300 mx-auto py-30">
                     <Suspense fallback={<span className="loading loading-spinner loading-lg"></span>}>
-                        <ToolsData toolsPromise={toolsPromise}></ToolsData>
+                        <ToolsData toolsPromise={toolsPromise} cart={cart} setCart={setCart}></ToolsData>
                     </Suspense>
                 </section>
             </main>

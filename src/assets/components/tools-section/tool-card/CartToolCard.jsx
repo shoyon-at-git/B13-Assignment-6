@@ -10,6 +10,9 @@ const CartToolCard = ({ cart, setCart }) => {
     }
     console.log(total);
     
+    const handleCheckout =() =>{
+        setCart([]);
+    }
     return (
         <div className="space-y-4  px-5 py-4 rounded-md shadow-2xl">
             <h2 className="text-3xl font-bold">Your Cart</h2>
@@ -39,7 +42,7 @@ const CartToolCard = ({ cart, setCart }) => {
                 <p>Total:</p>
                 <p className="text-black text-xl font-bold">${total}</p>
             </div>
-            <button className={`btn btn-primary w-full ${cart.length === 0 ? "hidden" : ""}`}>Proceed to checkout</button>
+            <button onClick={handleCheckout} className={`btn btn-primary w-full ${cart.length === 0 ? "hidden" : ""}`}>Proceed to checkout</button>
         </div>
     );
 };

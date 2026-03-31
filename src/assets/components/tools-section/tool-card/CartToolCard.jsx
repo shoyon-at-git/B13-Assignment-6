@@ -8,7 +8,7 @@ const CartToolCard = ({ cart, setCart }) => {
     for(let cartItem of cart){
         total = total+ cartItem.price;
     }
-    console.log(total);
+    // console.log(total);
     
     const handleCheckout =() =>{
         setCart([]);

@@ -4,6 +4,12 @@ import React from "react";
 const CartToolCard = ({ cart, setCart }) => {
     console.log(cart);
 
+    let total= 0;
+    for(let cartItem of cart){
+        total = total+ cartItem.price;
+    }
+    console.log(total);
+    
     return (
         <div className="space-y-4  px-5 py-4 rounded-md shadow-2xl">
             <h2 className="text-3xl font-bold">Your Cart</h2>
@@ -31,7 +37,7 @@ const CartToolCard = ({ cart, setCart }) => {
             )}
             <div className={`flex justify-between text-gray-500 w-full ${cart.length === 0 ? "hidden" : ""}`}>
                 <p>Total:</p>
-                <p className="text-black text-xl font-bold">$</p>
+                <p className="text-black text-xl font-bold">${total}</p>
             </div>
             <button className={`btn btn-primary w-full ${cart.length === 0 ? "hidden" : ""}`}>Proceed to checkout</button>
         </div>

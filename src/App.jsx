@@ -5,6 +5,7 @@ import NavBar from "./assets/components/navbar/NavBar";
 import ToolsData from "./assets/components/tools-section/ToolsData";
 import Steps from "./assets/components/Steps/Steps";
 import Info from "./assets/components/info/Info";
+import Plans from "./assets/components/price-plans/Plans";
 
 const fetchToolsData = async () => {
     const res = await fetch("/data/tools-data/toolsData.json");
@@ -13,6 +14,12 @@ const fetchToolsData = async () => {
 };
 const toolsPromise = fetchToolsData();
 
+const fetchPlans =async ()=>{
+    const res = await fetch("/data/plans/plans-data.json");
+    const data = await res.json();
+    return data
+}
+const planPromise = fetchPlans();
 
 
 function App() {
@@ -40,6 +47,9 @@ function App() {
                 </section>
                 <section className=" max-w-300 mx-auto py-10 lg:py-30 text-center">
                     <Steps></Steps>
+                </section>
+                <section className=" max-w-300 mx-auto py-10 lg:py-30">
+                    <Plans planPromise={planPromise}></Plans>
                 </section>
             </main>
         </>

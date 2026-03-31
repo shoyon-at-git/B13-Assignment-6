@@ -1,5 +1,5 @@
 import { Check } from "lucide-react";
-import React, { useState } from "react";
+
 
 const ToolCard = ({ tool, cart, setCart }) => {
     // console.log(tool);
@@ -36,14 +36,14 @@ const ToolCard = ({ tool, cart, setCart }) => {
             </div>
             <div className="space-y-4">
                 <h1 className="font-bold text-2xl">{tool.name}</h1>
-                <p>{tool.description}</p>
+                <p className=" text-gray-500">{tool.description}</p>
                 <p>
-                    <span>${tool.price}</span>/{tool.billing === "monthly" ? "mo" : "one-time"}
+                    <span className="font-bold text-lg">${tool.price}</span>/<span className="text-gray-500">{tool.billing === "monthly" ? "mo" : "one-time"}</span>
                 </p>
                 <ul>
                     {tool.features.map((feature, index) => {
                         return (
-                            <li key={index} className="flex gap-2">
+                            <li key={index} className="flex gap-2 text-gray-500">
                                 <Check className="text-green-500"></Check>
                                 {feature}
                             </li>

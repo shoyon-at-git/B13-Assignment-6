@@ -1,5 +1,6 @@
 import { ShoppingCart } from "lucide-react";
 import React from "react";
+import { toast } from "react-toastify";
 
 const CartToolCard = ({ cart, setCart }) => {
     // console.log(cart);
@@ -12,10 +13,12 @@ const CartToolCard = ({ cart, setCart }) => {
     
     const handleCheckout =() =>{
         setCart([]);
+        toast("All payment proceeded.");
     }
-    const handleRemove = (id) => {
-        const remainingCart = cart.filter((item) => id !== item.id);
+    const handleRemove = (itemToRemove) => {
+        const remainingCart = cart.filter((item) => itemToRemove.id !== item.id);
         setCart(remainingCart);
+        toast(`${itemToRemove.name} - Pack removed Successfully.`);
     };
 
     return (
@@ -39,7 +42,7 @@ const CartToolCard = ({ cart, setCart }) => {
                                 <p className="font-semibold text-gray-500 text-sm">${item.price}</p>
                             </div>
                         </div>
-                        <p onClick={() => handleRemove(item.id)} className="btn btn-outline border-none">Remove</p>
+                        <p onClick={() => handleRemove(item)} className="btn btn-outline border-none">Remove</p>
                     </div>
                 ))
             )}

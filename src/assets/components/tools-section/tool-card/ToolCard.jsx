@@ -1,4 +1,5 @@
 import { Check } from "lucide-react";
+import { toast } from "react-toastify";
 
 
 const ToolCard = ({ tool, cart, setCart }) => {
@@ -19,9 +20,11 @@ const ToolCard = ({ tool, cart, setCart }) => {
 
     const handlePurchaseBtn = () => {
         if (existingItem) {
+            // toast("Already added to cart");
             return;
         }
         setCart([...cart, tool]);
+        toast(`(${tool.name}) - Added to cart.`);
     };
 
     return (

@@ -8,6 +8,7 @@ import Info from "./assets/components/info/Info";
 import Plans from "./assets/components/price-plans/Plans";
 import Testimonial from "./assets/components/testimonial/Testimonial";
 import { ToastContainer } from "react-toastify";
+import Footer from "./assets/components/footer/Footer";
 
 const fetchToolsData = async () => {
     const res = await fetch("/data/tools-data/toolsData.json");
@@ -55,10 +56,12 @@ function App() {
                 <section id="testimonial" className=" py-10 lg:py-30 text-center bg-purple-600">
                     <Testimonial></Testimonial>
                 </section>
-                <section id="faq" className=" py-10 lg:py-30 text-center bg-[#101727] border border-white">
-                    <></>
-                </section>
             </main>
+            <footer>
+                <section id="faq" className=" pt-10 lg:pt-30 px-3 lg:px-50 text-center text-gray-400 bg-[#101727] pb-8" >
+                    <Footer></Footer>
+                </section>
+            </footer>
 
 
             <ToastContainer></ToastContainer>

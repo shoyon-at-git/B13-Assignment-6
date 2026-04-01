@@ -1,16 +1,19 @@
-# React + Vite
+##  Project Name  
+DigiTools Web  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+##  Description  
+DigiTools is a React-based web project where digital tools and pricing plans are loaded dynamically from local JSON data using the fetch() API. The project follows a data-driven approach to render tool cards, pricing sections, and other content without hardcoding them into components. It also includes interactive features like cart management, conditional rendering, and responsive UI updates, making the application scalable and easy to maintain.
 
-Currently, two official plugins are available:
+##  Technologies Used  
+- HTML  
+- CSS  
+- React.js  
+- Tailwind CSS  
+- DaisyUI  
+- JavaScript  
+- Vite  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+##  Features  
+- Dynamic data fetching from JSON using fetch()  
+- Interactive cart system with real-time updates  
+- Fully responsive and modern UI design  
